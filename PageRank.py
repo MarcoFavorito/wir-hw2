@@ -244,7 +244,7 @@ def print_graph(graph):
 # 	return graph
 
 
-def read_graph_from_file(input_file_name):
+def read_movie_graph(input_file_name):
 
 	# Get graph file
 	input_file = open(input_file_name, 'r')
@@ -289,7 +289,7 @@ def get_reverse_graph(graph):
 
 def __main():
 
-	graph = read_graph_from_file(input_file_name)
+	graph = read_movie_graph(input_file_name)
 	# print_graph(graph)
 
 	# Compute PageRank
