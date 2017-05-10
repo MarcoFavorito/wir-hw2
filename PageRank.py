@@ -196,8 +196,12 @@ def single_iteration_topic_specific_page_rank(graph, topic, page_rank_vector, al
 	for node in graph:
 		next_page_rank_vector[node] = r[node]
 
+	bias_sum = 0.
 	for node in topic:
-		next_page_rank_vector[node] += leakedPR / topic.number_of_nodes()
+		bias_sum += topic.node[node]["bias"]
+
+	for node in topic:
+		next_page_rank_vector[node] += leakedPR * topic.node[node]["bias"] / bias_sum
 
 	return next_page_rank_vector
 
@@ -297,6 +301,23 @@ def read_user_movie_rating(input_file_name):
 	return user_ratings
 
 
+def get_topic_from_user_ratings(graph, user_ratings, user_id):
+
+	movie_ratings = user_ratings[user_id]
+	movies = []
+	for (movie, rating) in movie_ratings:
+		movies.append(movie)
+
+	movie_ratings_dict = dict(movie_ratings)
+	# pp.pprint(movies)
+
+	topic = graph.subgraph(movies)
+	for node in topic:
+		topic.node[node]["bias"] = movie_ratings_dict[node]
+
+	return topic
+
+
 def get_reverse_graph(graph):
 	return graph.reverse(copy=True)
 
@@ -318,6 +339,12 @@ def __main():
 	user_ratings = read_user_movie_rating(user_movie_rating_path)
 	print("Done!")
 	print()
+
+	topic = get_topic_from_user_ratings(graph, user_ratings, 1683)
+	pp.pprint(topic.nodes())
+	for node in topic:
+		print(topic.node[node]["bias"])
+
 	# print_graph(graph)
 
 	# Compute PageRank
