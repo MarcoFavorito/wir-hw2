@@ -183,7 +183,10 @@ def single_iteration_topic_specific_page_rank(graph, topic, page_rank_vector, al
 		r[node] = 0.
 
 		for neighbor in graph[node]:
-			r[node] += (1 - alpha) * page_rank_vector[neighbor] / len(graph[neighbor])
+			weight = graph[node][neighbor]["weight"]
+			weight_sum = graph.node[neighbor]["edge_weight_sum"]
+
+			r[node] += (1 - alpha) * page_rank_vector[neighbor] * weight / weight_sum
 
 	leakedPR = 1.
 	for node in graph:
