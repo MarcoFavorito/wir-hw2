@@ -54,7 +54,7 @@ epsilon = 10**-6
 def compute_pagerank(graph):
 
 	previous_page_rank_vector = create_initial_pagerank_vector(graph)
-	page_rank_vector = []
+	page_rank_vector = {}
 	num_iterations = 0
 
 	while True:
@@ -87,11 +87,11 @@ def compute_pagerank(graph):
 
 
 def create_initial_pagerank_vector(graph):
-	page_rank_vector = []
+	page_rank_vector = {}
 	num_nodes = graph.number_of_nodes();
 
-	for i in range(num_nodes):
-		page_rank_vector.append(1. / num_nodes);
+	for node in graph:
+		page_rank_vector[node] = (1. / num_nodes);
 
 	return page_rank_vector
 
@@ -118,27 +118,23 @@ def create_initial_pagerank_vector(graph):
 
 
 def single_iteration_page_rank(graph, page_rank_vector, alpha):
-	next_page_rank_vector = []
+	next_page_rank_vector = {}
 
-	nodes = graph.nodes()
-	num_nodes = graph.num_nodes()
-	r = []
-	j = 0
+	num_nodes = graph.number_of_nodes()
+	r = {}
 
 	for node in graph:
-		r.append(0.)
+		r[node] = 0.
 
-		for neighbor in node:
-			r[j] += (1 - alpha) * page_rank_vector[i] / len(graph[i])
-
-		j += 1
+		for neighbor in graph[node]:
+			r[node] += (1 - alpha) * page_rank_vector[neighbor] / len(graph[neighbor])
 
 	leakedPR = 1.
-	for j in range(num_nodes):
-		leakedPR -= r[j]
+	for node in graph:
+		leakedPR -= r[node]
 
-	for j in range(num_nodes):
-		next_page_rank_vector.append(r[j] + leakedPR / num_nodes)
+	for node in graph:
+		next_page_rank_vector[node] = (r[node] + leakedPR / num_nodes)
 
 	return next_page_rank_vector
 
@@ -230,10 +226,10 @@ def __main():
 
 	# Compute PageRank
 	# page_rank_vector = compute_pagerank(graph, reverse_graph)
-	# page_rank_vector = compute_pagerank(graph)
-	# pp.pprint(page_rank_vector)
-	pp.pprint(graph.nodes()[0])
-	pp.pprint(graph.degree(graph.nodes()[0]))
+	page_rank_vector = compute_pagerank(graph)
+	pp.pprint(page_rank_vector)
+	# pp.pprint(graph.nodes()[0])
+	# pp.pprint(graph.degree(graph.nodes()[0]))
 
 
 	# nx.draw(graph)
