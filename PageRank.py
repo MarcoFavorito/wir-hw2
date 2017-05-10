@@ -59,8 +59,6 @@ def compute_pagerank(graph):
 
 	while True:
 
-		# pp.pprint(previous_page_rank_vector)
-
 		# Compute next pagerank vector
 		page_rank_vector = single_iteration_page_rank(graph, previous_page_rank_vector, alpha)
 
@@ -68,10 +66,6 @@ def compute_pagerank(graph):
 
 		# Evaluate the distance between the old and new pagerank vectors
 		distance = get_distance(previous_page_rank_vector, page_rank_vector)
-
-		# print()
-		# print(" iteration number " + str(num_iterations))
-		# print(" distance= " + str(distance))
 
 		# Check for convergence
 		if distance <= epsilon:
@@ -82,7 +76,6 @@ def compute_pagerank(graph):
 
 		previous_page_rank_vector = page_rank_vector
 
-	# pp.pprint(page_rank_vector)
 	return page_rank_vector
 
 
