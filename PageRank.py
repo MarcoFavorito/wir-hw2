@@ -1,13 +1,13 @@
 import csv
 import pprint as pp
 import networkx as nx
-import matplotlib.pyplot as plt
 
 # input_graph_adjacency_list_file_name = '../../Lab_2_new/small_graph__adjacency_list.tsv'
 # input_graph_adjacency_list_file_name = '../../Lab_2_new/wiki_graph__adjacency_list.tsv'
 
 movie_graph_path = "./datasets/movie_graph.txt"
 user_movie_rating_path = "./datasets/user_movie_rating.txt"
+input_user_id = 1683
 
 alpha = .15
 epsilon = 10**-6
@@ -58,10 +58,20 @@ def compute_pagerank(graph):
 	page_rank_vector = {}
 	num_iterations = 0
 
+	edge_weights = {}
+	for node in graph:
+		edge_weights[node] = {}
+		for neighbor in graph[node]:
+			edge_weights[node][neighbor] = graph[node][neighbor]["weight"]
+
+	edge_weight_sums = {}
+	for node in graph:
+		edge_weight_sums[node] = graph.node[node]["edge_weight_sum"]
+
 	while True:
 
 		# Compute next pagerank vector
-		page_rank_vector = single_iteration_page_rank(graph, previous_page_rank_vector, alpha)
+		page_rank_vector = single_iteration_page_rank(graph, previous_page_rank_vector, alpha, edge_weights, edge_weight_sums)
 
 		num_iterations += 1
 
@@ -70,12 +80,12 @@ def compute_pagerank(graph):
 		page_rank_vector_values = [t[1] for t in sorted(page_rank_vector.items(), key=lambda x: x[0])]
 		distance = get_distance(previous_page_rank_vector_values, page_rank_vector_values)
 
-		print(num_iterations)
+		print("PageRank iteration: " + str(num_iterations))
 
 		# Check for convergence
 		if distance <= epsilon:
 			print()
-			print(" Convergence!")
+			print("Convergence!")
 			print()
 			break
 
@@ -90,10 +100,21 @@ def compute_topic_specific_pagerank(graph, topic):
 	page_rank_vector = {}
 	num_iterations = 0
 
+	edge_weights = {}
+	for node in graph:
+		edge_weights[node] = {}
+		for neighbor in graph[node]:
+			edge_weights[node][neighbor] = graph[node][neighbor]["weight"]
+
+
+	edge_weight_sums = {}
+	for node in graph:
+		edge_weight_sums[node] = graph.node[node]["edge_weight_sum"]
+
 	while True:
 
 		# Compute next pagerank vector
-		page_rank_vector = single_iteration_topic_specific_page_rank(graph, topic, previous_page_rank_vector, alpha)
+		page_rank_vector = single_iteration_topic_specific_page_rank(graph, topic, previous_page_rank_vector, alpha, edge_weights, edge_weight_sums)
 
 		num_iterations += 1
 
@@ -103,12 +124,12 @@ def compute_topic_specific_pagerank(graph, topic):
 		page_rank_vector_values = [t[1] for t in sorted(page_rank_vector.items(), key=lambda x: x[0])]
 		distance = get_distance(previous_page_rank_vector_values, page_rank_vector_values)
 
-		print(num_iterations)
+		print("Topic-specific PageRank iteration: " + str(num_iterations))
 
 		# Check for convergence
 		if distance <= epsilon:
 			print()
-			print(" Convergence!")
+			print("Convergence!")
 			print()
 			break
 
@@ -148,7 +169,7 @@ def create_initial_pagerank_vector(graph):
 # 	return next_page_rank_vector
 
 
-def single_iteration_page_rank(graph, page_rank_vector, alpha):
+def single_iteration_page_rank(graph, page_rank_vector, alpha, edge_weights, edge_weight_sums):
 	next_page_rank_vector = {}
 
 	num_nodes = graph.number_of_nodes()
@@ -158,9 +179,10 @@ def single_iteration_page_rank(graph, page_rank_vector, alpha):
 		r[node] = 0.
 
 		for neighbor in graph[node]:
-
-			weight = graph[node][neighbor]["weight"]
-			weight_sum = graph.node[neighbor]["edge_weight_sum"]
+			# weight = graph[node][neighbor]["weight"]
+			weight = edge_weights[node][neighbor]
+			# weight_sum = graph.node[neighbor]["edge_weight_sum"]
+			weight_sum = edge_weight_sums[neighbor]
 
 			r[node] += (1 - alpha) * page_rank_vector[neighbor] * weight / weight_sum
 
@@ -174,7 +196,7 @@ def single_iteration_page_rank(graph, page_rank_vector, alpha):
 	return next_page_rank_vector
 
 
-def single_iteration_topic_specific_page_rank(graph, topic, page_rank_vector, alpha):
+def single_iteration_topic_specific_page_rank(graph, topic, page_rank_vector, alpha, edge_weights, edge_weight_sums):
 	next_page_rank_vector = {}
 
 	num_nodes = graph.number_of_nodes()
@@ -184,8 +206,10 @@ def single_iteration_topic_specific_page_rank(graph, topic, page_rank_vector, al
 		r[node] = 0.
 
 		for neighbor in graph[node]:
-			weight = graph[node][neighbor]["weight"]
-			weight_sum = graph.node[neighbor]["edge_weight_sum"]
+			# weight = graph[node][neighbor]["weight"]
+			weight = edge_weights[node][neighbor]
+			# weight_sum = graph.node[neighbor]["edge_weight_sum"]
+			weight_sum = edge_weight_sums[neighbor]
 
 			r[node] += (1 - alpha) * page_rank_vector[neighbor] * weight / weight_sum
 
@@ -335,28 +359,30 @@ def __main():
 	graph = read_movie_graph(movie_graph_path)
 	print("Done!")
 	print()
+
 	print("Reading " + user_movie_rating_path + "...")
 	user_ratings = read_user_movie_rating(user_movie_rating_path)
 	print("Done!")
 	print()
 
-	topic = get_topic_from_user_ratings(graph, user_ratings, 1683)
-	pp.pprint(topic.nodes())
-	for node in topic:
-		print(topic.node[node]["bias"])
-
-	# print_graph(graph)
+	print("Getting movies rated by user " + str(input_user_id) + "...")
+	topic = get_topic_from_user_ratings(graph, user_ratings, input_user_id)
+	# pp.pprint(topic.nodes())
+	# for node in topic:
+	# 	print(topic.node[node]["bias"])
+	print("Done!")
+	print()
 
 	# Compute PageRank
-	# page_rank_vector = compute_pagerank(graph, reverse_graph)
-	# page_rank_vector = compute_pagerank(graph)
-	# pp.pprint(page_rank_vector)
-	# pp.pprint(graph.nodes()[0])
-	# pp.pprint(graph.degree(graph.nodes()[0]))
+	print("Computing pagerank vector...")
+	topic_specific_pagerank_vector = compute_topic_specific_pagerank(graph, topic)
+	pagerank_vector = compute_pagerank(graph)
+	print("Done!")
+	print()
 
-
-	# nx.draw(graph)
-	# plt.show()
+	for key in pagerank_vector.keys():
+		if pagerank_vector[key] != topic_specific_pagerank_vector[key]:
+			pp.pprint(str(key) + ", " + str(pagerank_vector[key]) + " =/= " + str(key) + ", " + str(topic_specific_pagerank_vector[key]))
 
 
 __main()
