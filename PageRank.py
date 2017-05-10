@@ -65,7 +65,44 @@ def compute_pagerank(graph):
 		num_iterations += 1
 
 		# Evaluate the distance between the old and new pagerank vectors
-		distance = get_distance(previous_page_rank_vector, page_rank_vector)
+		previous_page_rank_vector_values = [t[1] for t in sorted(previous_page_rank_vector.items(), key=lambda x: x[0])]
+		page_rank_vector_values = [t[1] for t in sorted(page_rank_vector.items(), key=lambda x: x[0])]
+		distance = get_distance(previous_page_rank_vector_values, page_rank_vector_values)
+
+		print(num_iterations)
+
+		# Check for convergence
+		if distance <= epsilon:
+			print()
+			print(" Convergence!")
+			print()
+			break
+
+		previous_page_rank_vector = page_rank_vector
+
+	return page_rank_vector
+
+
+def compute_topic_specific_pagerank(graph, topic):
+
+	previous_page_rank_vector = create_initial_pagerank_vector(graph)
+	page_rank_vector = {}
+	num_iterations = 0
+
+	while True:
+
+		# Compute next pagerank vector
+		page_rank_vector = single_iteration_topic_specific_page_rank(graph, topic, previous_page_rank_vector, alpha)
+
+		num_iterations += 1
+
+		# Evaluate the distance between the old and new pagerank vectors
+
+		previous_page_rank_vector_values = [t[1] for t in sorted(vector_1.items(), key=lambda x: x[0])]
+		page_rank_vector_values = [t[1] for t in sorted(vector_2.items(), key=lambda x: x[0])]
+		distance = get_distance(previous_page_rank_vector_values, page_rank_vector_values)
+
+		print(num_iterations)
 
 		# Check for convergence
 		if distance <= epsilon:
@@ -120,7 +157,11 @@ def single_iteration_page_rank(graph, page_rank_vector, alpha):
 		r[node] = 0.
 
 		for neighbor in graph[node]:
-			r[node] += (1 - alpha) * page_rank_vector[neighbor] / len(graph[neighbor])
+
+			weight = graph[node][neighbor]["weight"]
+			weight_sum = graph.node[neighbor]["edge_weight_sum"]
+
+			r[node] += (1 - alpha) * page_rank_vector[neighbor] * weight / weight_sum
 
 	leakedPR = 1.
 	for node in graph:
@@ -132,8 +173,34 @@ def single_iteration_page_rank(graph, page_rank_vector, alpha):
 	return next_page_rank_vector
 
 
+def single_iteration_topic_specific_page_rank(graph, topic, page_rank_vector, alpha):
+	next_page_rank_vector = {}
+
+	num_nodes = graph.number_of_nodes()
+	r = {}
+
+	for node in graph:
+		r[node] = 0.
+
+		for neighbor in graph[node]:
+			r[node] += (1 - alpha) * page_rank_vector[neighbor] / len(graph[neighbor])
+
+	leakedPR = 1.
+	for node in graph:
+		leakedPR -= r[node]
+
+	for node in graph:
+		next_page_rank_vector[node] = r[node]
+
+	for node in topic:
+		next_page_rank_vector[node] += leakedPR / topic.number_of_nodes()
+
+	return next_page_rank_vector
+
+
 def get_distance(vector_1, vector_2):
 	distance = 0.
+
 	for v1, v2 in zip(vector_1, vector_2):
 		distance += abs(v1 - v2)
 
@@ -191,13 +258,15 @@ def read_graph_from_file(input_file_name):
 		weight = int(line[2])
 
 		if not graph.has_node(node_1):
-			graph.add_node(node_1)
+			graph.add_node(node_1, edge_weight_sum=0.)
 
 		if not graph.has_node(node_2):
-			graph.add_node(node_2)
+			graph.add_node(node_2, edge_weight_sum=0.)
 
 		if not graph.has_edge(node_1, node_2):
 			graph.add_edge(node_1, node_2, weight=weight)
+			graph.node[node_1]["edge_weight_sum"] += weight
+			graph.node[node_2]["edge_weight_sum"] += weight
 
 	input_file.close()
 
@@ -206,6 +275,9 @@ def read_graph_from_file(input_file_name):
 
 def get_reverse_graph(graph):
 	return graph.reverse(copy=True)
+
+
+
 
 
 ########################################################################################
@@ -220,7 +292,7 @@ def __main():
 	# Compute PageRank
 	# page_rank_vector = compute_pagerank(graph, reverse_graph)
 	page_rank_vector = compute_pagerank(graph)
-	pp.pprint(page_rank_vector)
+	# pp.pprint(page_rank_vector)
 	# pp.pprint(graph.nodes()[0])
 	# pp.pprint(graph.degree(graph.nodes()[0]))
 
