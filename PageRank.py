@@ -6,7 +6,8 @@ import matplotlib.pyplot as plt
 # input_graph_adjacency_list_file_name = '../../Lab_2_new/small_graph__adjacency_list.tsv'
 # input_graph_adjacency_list_file_name = '../../Lab_2_new/wiki_graph__adjacency_list.tsv'
 
-input_file_name = "./datasets/movie_graph.txt"
+movie_graph_path = "./datasets/movie_graph.txt"
+user_movie_rating_path = "./datasets/user_movie_rating.txt"
 
 alpha = .15
 epsilon = 10**-6
@@ -98,8 +99,8 @@ def compute_topic_specific_pagerank(graph, topic):
 
 		# Evaluate the distance between the old and new pagerank vectors
 
-		previous_page_rank_vector_values = [t[1] for t in sorted(vector_1.items(), key=lambda x: x[0])]
-		page_rank_vector_values = [t[1] for t in sorted(vector_2.items(), key=lambda x: x[0])]
+		previous_page_rank_vector_values = [t[1] for t in sorted(previous_page_rank_vector.items(), key=lambda x: x[0])]
+		page_rank_vector_values = [t[1] for t in sorted(page_rank_vector.items(), key=lambda x: x[0])]
 		distance = get_distance(previous_page_rank_vector_values, page_rank_vector_values)
 
 		print(num_iterations)
@@ -276,6 +277,26 @@ def read_movie_graph(input_file_name):
 	return graph
 
 
+def read_user_movie_rating(input_file_name):
+
+	input_file = open(input_file_name, "r")
+	input_file_csv_reader = csv.reader(input_file, delimiter='\t', quotechar='"', quoting=csv.QUOTE_NONE)
+
+	user_ratings = {}
+
+	for line in input_file_csv_reader:
+		user_id = int(line[0])
+		movie_id = int(line[1])
+		rating = int(line[2])
+
+		if user_id not in user_ratings:
+			user_ratings[user_id] = []
+
+		user_ratings[user_id].append((movie_id, rating))
+
+	return user_ratings
+
+
 def get_reverse_graph(graph):
 	return graph.reverse(copy=True)
 
@@ -289,12 +310,19 @@ def get_reverse_graph(graph):
 
 def __main():
 
-	graph = read_movie_graph(input_file_name)
+	print("Reading " + movie_graph_path + "...")
+	graph = read_movie_graph(movie_graph_path)
+	print("Done!")
+	print()
+	print("Reading " + user_movie_rating_path + "...")
+	user_ratings = read_user_movie_rating(user_movie_rating_path)
+	print("Done!")
+	print()
 	# print_graph(graph)
 
 	# Compute PageRank
 	# page_rank_vector = compute_pagerank(graph, reverse_graph)
-	page_rank_vector = compute_pagerank(graph)
+	# page_rank_vector = compute_pagerank(graph)
 	# pp.pprint(page_rank_vector)
 	# pp.pprint(graph.nodes()[0])
 	# pp.pprint(graph.degree(graph.nodes()[0]))
