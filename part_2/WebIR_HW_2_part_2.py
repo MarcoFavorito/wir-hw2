@@ -38,9 +38,8 @@ def main():
 	# get the list of ratings of only our user:
 	cur_user_ratings = user_ratings[userid]
 
-	sorted_and_filtered_movies_scores = _recommend_movies(movie_graph, cur_user_ratings, userid, verbose=verbose)
-	for movie_id, score in sorted_and_filtered_movies_scores:
-		print("{0}\t{1}".format(movie_id, score))
+	sorted_and_filtered_movies_scores = _recommend_movies(movie_graph, cur_user_ratings, verbose=verbose)
+
 
 	return sorted_and_filtered_movies_scores
 
@@ -60,7 +59,7 @@ def _recommend_movies(movie_graph, user_ratings, verbose=False):
 	# get the set of ALL movies_ids: it will be used for set their teleporting probability to zero
 	all_movies = set(movie_graph.nodes())
 
-	# compute teleporting distribution from the set of ratings (with biasing, as explained in the homework
+	# compute teleporting distribution from the set of ratings (with biasing, as explained in the homework)
 	teleporting_distribution = _compute_teleport_distribution_from_ratings(user_ratings, all_movies)
 
 	# compute the pagerank as in part 1. It returns a dictionay {movie_id: score}

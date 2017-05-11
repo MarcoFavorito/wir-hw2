@@ -64,7 +64,7 @@ def read_category_movies(input_file_name):
 	categories = {}
 	for i, line in enumerate(input_file_csv_reader):
 		# enumerate from 1 to 5 (hence i+1)
-		categories[i] = list(map(int, line))
+		categories[i+1] = list(map(int, line))
 
 	return categories
 
@@ -89,11 +89,30 @@ def get_uniform_teleporting_distribution_on_subgraph(graph, subgraph):
 	:return: a dictionary {node_id: 1/|V| }
 	"""
 	try:
-		teleporting_distribution = dict(zip(graph.nodes(), [1/graph.number_of_nodes()]*graph.number_of_nodes()))
+		nb_subgraph_nodes = subgraph.number_of_nodes()
+		teleporting_distribution = dict(zip(subgraph.nodes(), [1/nb_subgraph_nodes]*nb_subgraph_nodes))
 	except ZeroDivisionError:
+		# the subgraph has no node... Are you kidding me, ya?
 		teleporting_distribution = {}
 
+	# set the probability to zero for the complement of the subgraph
 	complement_nodes = set(graph.nodes()) - set(subgraph.nodes())
 	for n in complement_nodes:
-		assert n in subgraph.nodes()
+		# assert n not in subgraph.nodes()
+		teleporting_distribution[n]= 0
 
+	return teleporting_distribution
+
+
+def print_pagerank_list(ids_scores, file=None):
+	for id, score in ids_scores:
+		print("{0}\t{1}".format(id, score), file=file)
+
+def load_pagerank_vector_from_file(filepath):
+	with open(filepath) as fin:
+		lines = fin.readlines()
+		splitted_lines = map(lambda x: x.split('\t'), lines)
+		parsed_lines = map(lambda x: (int(x[0]), float(x[1])), splitted_lines)
+
+	result = dict(parsed_lines)
+	return result

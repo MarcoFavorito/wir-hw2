@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37d138be-08ad-4a9e-987d-9496fa382b91" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/part_3/WebIR_HW_2_part_3_offline.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/part_3/WebIR_HW_2_part_3_online.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/configurations.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/run_all_tests.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/unittests_part_3.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/unittests-pagerank.py" afterPath="$PROJECT_DIR$/tests/unittests_pagerank.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/unittests-pagerank_utils.py" afterPath="$PROJECT_DIR$/tests/unittests_pagerank_utils.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/unittests-part_2.py" afterPath="$PROJECT_DIR$/tests/unittests_part_2.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/part_1/topic_specific_pagerank.py" afterPath="$PROJECT_DIR$/part_1/topic_specific_pagerank.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/part_2/WebIR_HW_2_part_2.py" afterPath="$PROJECT_DIR$/part_2/WebIR_HW_2_part_2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/unittests-pagerank.py" afterPath="$PROJECT_DIR$/tests/unittests-pagerank.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/unittests-part_2.py" afterPath="$PROJECT_DIR$/tests/unittests-part_2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/part_3/WebIR_HW_2_part_3_offline.py" afterPath="$PROJECT_DIR$/part_3/WebIR_HW_2_part_3_offline.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/part_3/WebIR_HW_2_part_3_online.py" afterPath="$PROJECT_DIR$/part_3/WebIR_HW_2_part_3_online.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/pagerank_utils.py" afterPath="$PROJECT_DIR$/utils/pagerank_utils.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,49 +27,15 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="WebIR_HW_2_part_3_offline.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/part_3/WebIR_HW_2_part_3_offline.py">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="pagerank_utils.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/pagerank_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="64" lean-forward="false" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
+            <state relative-caret-position="299">
+              <caret line="114" column="77" lean-forward="false" selection-start-line="114" selection-start-column="77" selection-end-line="114" selection-end-column="77" />
               <folding>
-                <element signature="e#0#34#0" expanded="true" />
+                <element signature="e#0#21#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="unittests-part_2.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/unittests-part_2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="46" column="50" lean-forward="false" selection-start-line="46" selection-start-column="50" selection-end-line="46" selection-end-column="50" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="unittests-pagerank.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/unittests-pagerank.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="53" column="48" lean-forward="false" selection-start-line="53" selection-start-column="48" selection-end-line="53" selection-end-column="48" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="unittests-pagerank_utils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/unittests-pagerank_utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="23" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -73,45 +43,31 @@
       <file leaf-file-name="WebIR_HW_2_part_3_online.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/part_3/WebIR_HW_2_part_3_online.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="134">
+              <caret line="33" column="17" lean-forward="false" selection-start-line="33" selection-start-column="4" selection-end-line="34" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="unittests_part_3.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/unittests_part_3.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="8" column="34" lean-forward="false" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebIR_HW_2_part_2.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/part_2/WebIR_HW_2_part_2.py">
+      <file leaf-file-name="pagerank_5" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datasets/pagerank_5">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="46" column="21" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebIR_HW_2_part_2.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/WebIR_HW_2_part_2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="305" column="0" lean-forward="false" selection-start-line="305" selection-start-column="0" selection-end-line="305" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pagerank_utils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/pagerank_utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -133,6 +89,10 @@
       <find>pp</find>
       <find>([0-9])+: (0\.[0-9]+)</find>
       <find>([0-9]+)+: (0\.[0-9]+)</find>
+      <find>stream</find>
+      <find>181</find>
+      <find>\t181\t</find>
+      <find>\t50\t</find>
     </findStrings>
     <replaceStrings>
       <replace>(1, $2)</replace>
@@ -147,13 +107,17 @@
       <list>
         <option value="$PROJECT_DIR$/utils/misc.py" />
         <option value="$PROJECT_DIR$/tests/unittests-part_2.py" />
-        <option value="$PROJECT_DIR$/part_3/WebIR_HW_2_part_3_online.py" />
+        <option value="$PROJECT_DIR$/tests/unittests-pagerank.py" />
+        <option value="$PROJECT_DIR$/WebIR_HW_2_part_2.py" />
+        <option value="$PROJECT_DIR$/part_1/topic_specific_pagerank.py" />
+        <option value="$PROJECT_DIR$/tests/run_all_tests.py" />
+        <option value="$PROJECT_DIR$/tests/unittests_part_2.py" />
+        <option value="$PROJECT_DIR$/part_2/WebIR_HW_2_part_2.py" />
+        <option value="$PROJECT_DIR$/configurations.py" />
         <option value="$PROJECT_DIR$/part_3/WebIR_HW_2_part_3_offline.py" />
         <option value="$PROJECT_DIR$/utils/pagerank_utils.py" />
-        <option value="$PROJECT_DIR$/part_1/topic_specific_pagerank.py" />
-        <option value="$PROJECT_DIR$/tests/unittests-pagerank.py" />
-        <option value="$PROJECT_DIR$/part_2/WebIR_HW_2_part_2.py" />
-        <option value="$PROJECT_DIR$/WebIR_HW_2_part_2.py" />
+        <option value="$PROJECT_DIR$/part_3/WebIR_HW_2_part_3_online.py" />
+        <option value="$PROJECT_DIR$/tests/unittests_part_3.py" />
       </list>
     </option>
   </component>
@@ -178,7 +142,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -189,20 +152,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="wir-hw2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wir-hw2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wir-hw2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -278,6 +227,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -285,29 +235,64 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/utils/pagerank_utils.py" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/utils" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$/part_3" />
       <recent name="$PROJECT_DIR$" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/utils" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python tests.Nosetest test_part_2.test_ratings">
-    <configuration default="false" name="WebIR_HW_2_part_2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.WebIR_HW_2_part_3_online">
+    <configuration default="false" name="WebIR_HW_2_part_3_offline" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/part_2" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/part_3" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="wir-hw2" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/part_2/WebIR_HW_2_part_2.py" />
-      <option name="PARAMETERS" value="../datasets/movie_graph.txt ../datasets/user_movie_rating.txt 1683 --verbose" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/part_3/WebIR_HW_2_part_3_offline.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="run_all_tests" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="wir-hw2" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/run_all_tests.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="WebIR_HW_2_part_3_online" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/part_3" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="wir-hw2" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/part_3/WebIR_HW_2_part_3_online.py" />
+      <option name="PARAMETERS" value="0_0_0_0_1" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
@@ -321,7 +306,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="wir-hw2" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/unittests-part_2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/unittests_part_2.py" />
       <option name="CLASS_NAME" value="test_part_2" />
       <option name="METHOD_NAME" value="test_ratings" />
       <option name="FOLDER_NAME" value="" />
@@ -332,7 +317,7 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Nosetests in unittests-pagerank" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="Nosetests in unittests_pagerank" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -342,7 +327,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="wir-hw2" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/unittests-pagerank.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/unittests_pagerank.py" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
       <option name="FOLDER_NAME" value="" />
@@ -487,16 +472,20 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Python.WebIR_HW_2_part_2" />
-      <item index="1" class="java.lang.String" itemvalue="Python tests.Nosetest test_part_2.test_ratings" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Nosetests in unittests-pagerank" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.WebIR_HW_2_part_3_offline" />
+      <item index="1" class="java.lang.String" itemvalue="Python.run_all_tests" />
+      <item index="2" class="java.lang.String" itemvalue="Python.WebIR_HW_2_part_3_online" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Nosetest test_part_2.test_ratings" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Nosetests in unittests_pagerank" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Nosetest test_part_2.test_ratings" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Nosetests in unittests-pagerank" />
-        <item index="2" class="java.lang.String" itemvalue="Python.WebIR_HW_2_part_2" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.WebIR_HW_2_part_3_online" />
+        <item index="1" class="java.lang.String" itemvalue="Python.WebIR_HW_2_part_3_offline" />
+        <item index="2" class="java.lang.String" itemvalue="Python.run_all_tests" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Nosetest test_part_2.test_ratings" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Nosetests in unittests_pagerank" />
       </list>
     </recent_temporary>
   </component>
@@ -551,20 +540,20 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3993808" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -575,52 +564,68 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/part_1/topic_specific_pagerank.py</url>
-          <line>97</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/part_3/WebIR_HW_2_part_3_online.py</url>
+          <line>45</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/part_3/WebIR_HW_2_part_3_offline.py</url>
+          <line>70</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/part_3/WebIR_HW_2_part_3_online.py</url>
+          <line>27</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/part_3/WebIR_HW_2_part_3_online.py</url>
+          <line>53</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="7" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="16" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/part_1/__init__.py">
+    <entry file="file://$PROJECT_DIR$/part_3/WebIR_HW_2_part_3_offline.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="162">
+          <caret line="10" column="64" lean-forward="false" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2016.3/system/python_stubs/-1247971764/builtins.py">
+    <entry file="file://$PROJECT_DIR$/tests/unittests_part_2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="2981" column="8" lean-forward="false" selection-start-line="2981" selection-start-column="8" selection-end-line="2981" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="756">
+          <caret line="46" column="50" lean-forward="false" selection-start-line="46" selection-start-column="50" selection-end-line="46" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#15#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/lib/python3.5/pprint.py">
+    <entry file="file://$PROJECT_DIR$/tests/unittests_pagerank.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="846">
+          <caret line="53" column="48" lean-forward="false" selection-start-line="53" selection-start-column="48" selection-end-line="53" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#15#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/misc.py">
+    <entry file="file://$PROJECT_DIR$/tests/unittests_pagerank_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PageRank.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="9" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+        <state relative-caret-position="36">
+          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -633,25 +638,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datasets/category_movies.txt">
+    <entry file="file://$PROJECT_DIR$/part_2/WebIR_HW_2_part_2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="774">
+          <caret line="46" column="21" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#10#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/__init__.py">
+    <entry file="file://$PROJECT_DIR$/WebIR_HW_2_part_2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#10#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/pagerank_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
+        <state relative-caret-position="1746">
           <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
@@ -659,59 +668,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/part_1/topic_specific_pagerank.py">
+    <entry file="file://$PROJECT_DIR$/part_1/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="104" column="0" lean-forward="true" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/part_3/WebIR_HW_2_part_3_offline.py">
+    <entry file="file://$PROJECT_DIR$/utils/misc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="64" lean-forward="false" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/unittests-pagerank.py">
+    <entry file="file://$PROJECT_DIR$/PageRank.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="53" column="48" lean-forward="false" selection-start-line="53" selection-start-column="48" selection-end-line="53" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="18">
+          <caret line="1" column="9" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/unittests-pagerank_utils.py">
+    <entry file="file://$PROJECT_DIR$/utils/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/unittests_pagerank_utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
-          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="23" />
+          <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="23" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/unittests-part_2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="46" column="50" lean-forward="false" selection-start-line="46" selection-start-column="50" selection-end-line="46" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/part_2/WebIR_HW_2_part_2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="46" column="21" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -720,8 +709,176 @@
         <state relative-caret-position="242">
           <caret line="305" column="0" lean-forward="false" selection-start-line="305" selection-start-column="0" selection-end-line="305" selection-end-column="0" />
           <folding>
+            <element signature="e#0#10#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/unittests_pagerank.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/run_all_tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="71" lean-forward="false" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#58#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/part_3/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/part_2/WebIR_HW_2_part_2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="61" column="107" lean-forward="false" selection-start-line="61" selection-start-column="107" selection-end-line="61" selection-end-column="107" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2016.3/system/python_stubs/-1247971764/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="475" column="4" lean-forward="false" selection-start-line="475" selection-start-column="4" selection-end-line="475" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/part_1/topic_specific_pagerank.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/unittests_part_2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/movie_graph.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/pagerank_2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/part_3/WebIR_HW_2_part_3_offline.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-342">
+          <caret line="32" column="74" lean-forward="false" selection-start-line="32" selection-start-column="74" selection-end-line="32" selection-end-column="74" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/pagerank_3">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/pagerank_4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.5/pprint.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configurations.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="43" lean-forward="false" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/pagerank_1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="24" lean-forward="true" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/category_movies.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="56" lean-forward="false" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/pagerank_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="114" column="77" lean-forward="false" selection-start-line="114" selection-start-column="77" selection-end-line="114" selection-end-column="77" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/pagerank_5">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/part_3/WebIR_HW_2_part_3_online.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="33" column="17" lean-forward="false" selection-start-line="33" selection-start-column="4" selection-end-line="34" selection-end-column="0" />
+          <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/unittests_part_3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="8" column="34" lean-forward="false" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
