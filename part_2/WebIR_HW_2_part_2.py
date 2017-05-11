@@ -10,7 +10,7 @@ def _print_usage():
 	usage='''
 Usage:
 	python WebIR_HW_2_part_2.py <graph_path> <user_ratings> <user_id> [--verbose]
-example
+Example:
 	python WebIR_HW_2_part_2.py ../datasets/movie_graph.txt ../datasets/user_movie_rating.txt 1683 --verbose
 	'''
 	print(usage)
@@ -27,13 +27,10 @@ def main():
 		_print_usage()
 		exit(1)
 
-	sorted_and_filtered_movies_scores = _reccomend_movies(movie_graph_path, user_ratings_path, userid, verbose=verbose)
-	for movie_id, score in sorted_and_filtered_movies_scores:
-		print("{0}\t{1}".format(movie_id, score))
 
-	return sorted_and_filtered_movies_scores
+	# read the whole movie graph from its adjacency list
+	movie_graph = pru.read_movie_graph(movie_graph_path)
 
-def _reccomend_movies(movie_graph_path, user_ratings_path, userid, verbose=False):
 	# retrieve ALL user ratings (we can improve it reading only those line of our userid):
 	user_ratings = pru.read_user_movie_rating(user_ratings_path)
 
@@ -41,16 +38,30 @@ def _reccomend_movies(movie_graph_path, user_ratings_path, userid, verbose=False
 	# get the list of ratings of only our user:
 	cur_user_ratings = user_ratings[userid]
 
-	# read the whole movie graph from its adjacency list
-	movie_graph = pru.read_movie_graph(movie_graph_path)
+	sorted_and_filtered_movies_scores = _recommend_movies(movie_graph, cur_user_ratings, userid, verbose=verbose)
+	for movie_id, score in sorted_and_filtered_movies_scores:
+		print("{0}\t{1}".format(movie_id, score))
+
+	return sorted_and_filtered_movies_scores
+
+def _recommend_movies(movie_graph, user_ratings, verbose=False):
+	"""
+
+	:param movie_graph_path:
+	:param user_ratings_path:
+	:param userid:
+	:param verbose:
+	:return:
+	"""
+
 
 	# get the set of movies_id: it will be used for filter
-	rated_movies = set([m for m, _ in cur_user_ratings])
+	rated_movies = set([m for m, _ in user_ratings])
 	# get the set of ALL movies_ids: it will be used for set their teleporting probability to zero
 	all_movies = set(movie_graph.nodes())
 
 	# compute teleporting distribution from the set of ratings (with biasing, as explained in the homework
-	teleporting_distribution = _compute_teleport_distribution_from_ratings(cur_user_ratings, all_movies)
+	teleporting_distribution = _compute_teleport_distribution_from_ratings(user_ratings, all_movies)
 
 	# compute the pagerank as in part 1. It returns a dictionay {movie_id: score}
 	pr = tspr.compute_topic_specific_pagerank(movie_graph, teleporting_distribution=teleporting_distribution)

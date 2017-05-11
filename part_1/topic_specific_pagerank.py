@@ -1,3 +1,4 @@
+import utils.pagerank_utils as pru
 
 default_alpha = .15
 default_epsilon = 10**-6
@@ -21,7 +22,7 @@ def compute_topic_specific_pagerank(graph, teleporting_distribution=None, alpha=
 	"""
 
 	if teleporting_distribution==None:
-		teleporting_distribution = get_uniform_teleporting_distribution(graph)
+		teleporting_distribution = pru.get_uniform_teleporting_distribution(graph)
 
 	previous_page_rank_vector = create_initial_pagerank_vector(graph)
 	page_rank_vector = {}
@@ -67,7 +68,7 @@ def create_initial_pagerank_vector(graph):
 
 def single_iteration_topic_specific_page_rank(graph, page_rank_vector, teleporting_distribution=None, alpha=default_alpha):
 	if teleporting_distribution==None:
-		teleporting_distribution = get_uniform_teleporting_distribution(graph)
+		teleporting_distribution = pru.get_uniform_teleporting_distribution(graph)
 
 
 	next_page_rank_vector = {}
@@ -98,18 +99,6 @@ def single_iteration_topic_specific_page_rank(graph, page_rank_vector, teleporti
 
 	return next_page_rank_vector
 
-
-def get_uniform_teleporting_distribution(graph):
-	"""
-	Compute the teleporting distribution, without assumption (i.e. uniform distribution)
-	:param graph:
-	:return: a dictionary {node_id: 1/|V| }
-	"""
-	try:
-		teleporting_distribution = dict(zip(graph.nodes(), [1/graph.number_of_nodes()]*graph.number_of_nodes()))
-	except ZeroDivisionError:
-		teleporting_distribution = {}
-	return teleporting_distribution
 
 def get_distance(vector_1, vector_2):
 	distance = 0.

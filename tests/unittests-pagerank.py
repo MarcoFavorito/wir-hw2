@@ -1,39 +1,10 @@
-# Copyright (c) 2010 Pedro Matiello <pmatiello@gmail.com>
-#               Juarez Bochi  <jbochi@gmail.com>
-#
-# Permission is hereby granted, free of charge, to any person
-# obtaining a copy of this software and associated documentation
-# files (the "Software"), to deal in the Software without
-# restriction, including without limitation the rights to use,
-# copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the
-# Software is furnished to do so, subject to the following
-# conditions:
-
-# The above copyright notice and this permission notice shall be
-# included in all copies or substantial portions of the Software.
-
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-# OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-# HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-# OTHER DEALINGS IN THE SOFTWARE.
-
-
-"""
-Unittests for pygraph.algorithms.pagerank
-"""
-
 import unittest
 
 from networkx import Graph
 
 import part_1.topic_specific_pagerank as TSPageRank
 from utils.pagerank_utils import read_movie_graph
-
+import utils.pagerank_utils as pru
 default_delta = 1e-05
 
 class test_pagerank(unittest.TestCase):
@@ -50,8 +21,10 @@ class test_pagerank(unittest.TestCase):
 		G = read_movie_graph("graphs/graph-01-cycle")
 
 		topic = G.subgraph([1,2,3,4,5])
+		uniform_teleporting_distribution = pru.get_uniform_teleporting_distribution(G)
+
 		expected_pr = {1: 0.2, 2: 0.2, 3: 0.2, 4: 0.2, 5: 0.2}
-		pr = TSPageRank.compute_topic_specific_pagerank(G, topic)
+		pr = TSPageRank.compute_topic_specific_pagerank(G, teleporting_distribution=uniform_teleporting_distribution)
 
 		for k in pr:
 			self.assertAlmostEqual(pr[k], expected_pr[k], delta=default_delta)
@@ -65,7 +38,7 @@ class test_pagerank(unittest.TestCase):
 		topic = G.subgraph([1, 2])
 		teleporting_distribution = {1:0.5, 2:0.5}
 		expected_pr = {1: 0.5, 2: 0.5}
-		pr = TSPageRank.compute_topic_specific_pagerank(G, topic)
+		pr = TSPageRank.compute_topic_specific_pagerank(G, teleporting_distribution=teleporting_distribution)
 
 		for k in pr:
 			self.assertAlmostEqual(pr[k], expected_pr[k], delta=default_delta)
@@ -78,7 +51,9 @@ class test_pagerank(unittest.TestCase):
 
 		topic = G.subgraph([2])
 		expected_pr = {1: 0.4594592532498197, 2: 0.5405407467501804}
-		pr = TSPageRank.compute_topic_specific_pagerank(G, topic)
+		teleporting_distribution = {1:0.0, 2:1.0}
+
+		pr = TSPageRank.compute_topic_specific_pagerank(G, teleporting_distribution=teleporting_distribution)
 
 		for k in pr:
 			self.assertAlmostEqual(pr[k], expected_pr[k], delta=default_delta)
