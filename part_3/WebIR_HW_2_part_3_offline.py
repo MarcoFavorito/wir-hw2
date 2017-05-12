@@ -20,7 +20,7 @@ def compute_pageranks_by_category(movie_graph, category_movies_dict):
 	categories = category_movies_dict.keys()
 
 	for category_id in categories:
-		# get
+		# get subgraph from movies of category_id
 		cur_category_subgraph = movie_graph.subgraph(category_movies_dict[category_id])
 
 		# uniform distribution ONLY on movies belonging to the category; probabilities for other movies are set to zero.
@@ -41,7 +41,7 @@ def compute_pageranks_by_category(movie_graph, category_movies_dict):
 def main(movie_graph_filepath, category_movies_filepath, output_dir):
 	"""
 	Compute the pagerank topic-based over every category and save each list of tuple (movie_id, score)
-	in files which filepath is "${output_dir}/pagerank_${category_id}"
+	in files whose filepath is "${output_dir}/pagerank_${category_id}"
 	:param movie_graph_filepath:
 	:param category_movies_filepath:
 	:param output_dir:
@@ -59,6 +59,7 @@ def main(movie_graph_filepath, category_movies_filepath, output_dir):
 		output_filepath = conf.PART_2_OUTPUT_DIR + conf.PART_2_PAGERANK_OUTPUT_FILENAME_FORMAT
 		output_filepath = output_filepath.format(category_id)
 		with open(output_filepath, "w") as fout:
+			# write the topic-based pagerank (uniform teleporting probability over movies of the category)
 			pru.print_pagerank_list(category2pagerank[category_id], file=fout)
 
 
@@ -69,6 +70,4 @@ if __name__ == '__main__':
 	output_dir = conf.PART_2_OUTPUT_DIR
 
 	main(movie_graph_filepath, category_movies_filepath, output_dir)
-
-
 

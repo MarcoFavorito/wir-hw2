@@ -32,18 +32,22 @@ def main():
 	movie_graph = pru.read_movie_graph(movie_graph_path)
 
 	# retrieve ALL user ratings (we can improve it reading only those line of our userid):
-	user_ratings = pru.read_user_movie_rating(user_ratings_path)
+	users_ratings = pru.read_user_movie_rating(user_ratings_path)
 
 	# we have a dictionary {userid: [(movie_id, rating)]}
 	# get the list of ratings of only our user:
-	cur_user_ratings = user_ratings[userid]
+	user_ratings = users_ratings[userid]
 
-	sorted_and_filtered_movies_scores = _recommend_movies(movie_graph, cur_user_ratings, verbose=verbose)
 
+	movies_scores = _pagerank_from_user_ratings(movie_graph, user_ratings, verbose=verbose)
+
+	sorted_and_filtered_movies_scores = sorted(movies_scores, key=lambda x: -x[1])
+
+	pru.print_pagerank_list(sorted_and_filtered_movies_scores)
 
 	return sorted_and_filtered_movies_scores
 
-def _recommend_movies(movie_graph, user_ratings, verbose=False):
+def _pagerank_from_user_ratings(movie_graph, user_ratings, verbose=False):
 	"""
 
 	:param movie_graph_path:
@@ -54,22 +58,23 @@ def _recommend_movies(movie_graph, user_ratings, verbose=False):
 	"""
 
 
-	# get the set of movies_id: it will be used for filter
-	rated_movies = set([m for m, _ in user_ratings])
 	# get the set of ALL movies_ids: it will be used for set their teleporting probability to zero
 	all_movies = set(movie_graph.nodes())
+
+	# get the set of movies_id: it will be used for filtering the recommendations
+	rated_movies = set([m for m in user_ratings.keys()])
+
 
 	# compute teleporting distribution from the set of ratings (with biasing, as explained in the homework)
 	teleporting_distribution = _compute_teleport_distribution_from_ratings(user_ratings, all_movies)
 
 	# compute the pagerank as in part 1. It returns a dictionay {movie_id: score}
-	pr = tspr.compute_topic_specific_pagerank(movie_graph, teleporting_distribution=teleporting_distribution)
+	movie_scores = tspr.compute_topic_specific_pagerank(movie_graph, teleporting_distribution=teleporting_distribution)
 
 	# filter from the obtained list the movies already seen
-	filtered_movies_scores = filter(lambda x: x[0] not in rated_movies, pr.items())
-	sorted_and_filtered_movies_scores = sorted(filtered_movies_scores, key=lambda x: -x[1])
+	filtered_movies_scores = filter(lambda x: x[0] not in rated_movies, movie_scores.items())
 
-	return sorted_and_filtered_movies_scores
+	return filtered_movies_scores
 
 
 
@@ -78,24 +83,19 @@ def _compute_teleport_distribution_from_ratings(user_rating, all_movies):
 	returns the teleporting distribution as explained in the homework
 	if a movie M has been rated, its probability is: RATE_M / SUM_OF_ALL_RATINGS
 	else, its probability is: 0
-	:param user_rating: a list of (movie_id, rating)
+	:param user_rating: a dict of (movie_id, rating)
 	:param all_movies: a set of movie ids, either rated or not. It is used for filter
 			the movies that have no rating, and then their probability will be set to 0.
 	:return:
 	"""
 	distribution = {}
-	rating_sum = sum([r for _,r in user_rating])
-	for movie_id, rating in user_rating:
+	rating_sum = sum(user_rating.values())
+	for movie_id, rating in user_rating.items():
 		distribution[movie_id]=rating/rating_sum
 	for not_rated_movie in filter(lambda x: x not in distribution, all_movies):
 		distribution[not_rated_movie] = 0
 
 	return distribution
-
-
-
-
-
 
 
 

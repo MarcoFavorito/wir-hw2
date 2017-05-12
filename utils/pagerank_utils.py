@@ -46,9 +46,9 @@ def read_user_movie_rating(input_file_name):
 		rating = int(line[2])
 
 		if user_id not in user_ratings:
-			user_ratings[user_id] = []
+			user_ratings[user_id] = {}
 
-		user_ratings[user_id].append((movie_id, rating))
+		user_ratings[user_id][movie_id] = rating
 
 	return user_ratings
 
@@ -116,3 +116,21 @@ def load_pagerank_vector_from_file(filepath):
 
 	result = dict(parsed_lines)
 	return result
+
+
+def merge_distributions(dist_list, weights):
+	assert len(dist_list)==len(weights)
+	result = {}
+	# normalize weights if they are not
+	if sum(weights)!=1.:
+		weights = [w/sum(weights) for w in weights]
+
+	for distribution, weight in zip(dist_list, weights):
+		for id in distribution:
+			if id in result:
+				result[id] += distribution[id]*weight
+			else:
+				result[id] = distribution[id]*weight
+
+	return result
+
