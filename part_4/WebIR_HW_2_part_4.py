@@ -31,7 +31,7 @@ def main():
 	# retrieve ALL user ratings (we can improve it reading only those line of our userid):
 	user_ratings = pru.read_user_movie_rating(user_ratings_path)
 
-	# we have a dictionary {userid: [(movie_id, rating)]}
+	# we have a dictionary {userid: {movie_id: rating}}
 	# get the list of ratings of the group, i.e. from every user.
 	# at the end we have a dict: {userid: {movie_id: rate}}
 	group_ratings = dict([(userid, user_ratings[userid]) for userid in users_weights_pairs])

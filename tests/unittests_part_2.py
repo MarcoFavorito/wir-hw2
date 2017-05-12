@@ -45,10 +45,8 @@ class test_part_2(unittest.TestCase):
 		# get the set of movies_id: it will be used for filtering the recommendations
 		rated_movies = set([m for m in cur_user_ratings.keys()])
 
-		movies_scores = p2._pagerank_from_user_ratings(movie_graph, cur_user_ratings)
+		filtered_movies_scores = p2._pagerank_from_user_ratings(movie_graph, cur_user_ratings)
 
-		# filter from the obtained list the movies already seen
-		filtered_movies_scores = filter(lambda x: x[0] not in rated_movies, movies_scores.items())
 		sorted_and_filtered_movies_scores = sorted(filtered_movies_scores, key=lambda x: -x[1])
 
 
