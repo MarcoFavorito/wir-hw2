@@ -1,14 +1,14 @@
 import unittest
-import part_2.WebIR_HW_2_part_2 as p2
+import WebIR_HW_2_part_2 as p2
 import os
 # import WebIR_HW_2_part_2 as hw2_2
-import utils.pagerank_utils as pru
+import pagerank_utils as pru
 
 class test_part_2(unittest.TestCase):
 
 	def setUp(self):
-		self.dataset_movie_graph = "../datasets/movie_graph.txt"
-		self.dataset_user_movie_rating = "../datasets/user_movie_rating.txt"
+		self.dataset_movie_graph = "./datasets/movie_graph.txt"
+		self.dataset_user_movie_rating = "./datasets/user_movie_rating.txt"
 
 
 

@@ -1,8 +1,8 @@
 import unittest
-import part_2.WebIR_HW_2_part_2 as p2
-import part_3.WebIR_HW_2_part_3_online as p3_online
+import WebIR_HW_2_part_2 as p2
+import WebIR_HW_2_part_3_online as p3_online
 import os
-import utils.pagerank_utils as pru
+import pagerank_utils as pru
 import configurations as conf
 
 class test_part_3(unittest.TestCase):

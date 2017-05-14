@@ -2,7 +2,7 @@ import unittest
 
 import networkx as nx
 
-import utils.pagerank_utils as pru
+import pagerank_utils as pru
 
 GRAPH_DIR = "./graphs/"
 

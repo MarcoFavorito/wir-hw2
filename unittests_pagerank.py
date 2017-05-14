@@ -2,9 +2,10 @@ import unittest
 
 from networkx import Graph
 
-import part_1.topic_specific_pagerank as TSPageRank
-from utils.pagerank_utils import read_movie_graph
-import utils.pagerank_utils as pru
+import topic_specific_pagerank as TSPageRank
+from pagerank_utils import read_movie_graph
+import pagerank_utils as pru
+
 default_delta = 1e-05
 
 class test_pagerank(unittest.TestCase):
