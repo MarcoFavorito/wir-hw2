@@ -1,17 +1,22 @@
 import sys
-import configurations as conf
-import utils.pagerank_utils as pru
 from _functools import reduce
-import part_1.topic_specific_pagerank as tspr
-import part_2.WebIR_HW_2_part_2 as part2
+
+import configurations as conf
+import pagerank_utils as pru
+import topic_specific_pagerank as tspr
+import WebIR_HW_2_part_2 as part2
+
+
 
 def _print_usage():
-	usage='''Usage:
+	usage='''
+Usage:
 	python WebIR_HW_2_part_4.py <graph_path> <user_ratings> <user_group_weights> [--verbose]
 Example:
-	python WebIR_HW_2_part_4.py ../datasets/movie_graph.txt ../datasets/user_movie_rating.txt 1683_1__1684_2 --verbose
+	python WebIR_HW_2_part_4.py ./datasets/movie_graph.txt ./datasets/user_movie_rating.txt 1683_1__1684_2 --verbose
 	'''
 	print(usage)
+
 
 def main():
 
@@ -70,6 +75,10 @@ def _pagerank_from_group_ratings(movie_graph, group_ratings, users_weights_pairs
 	filtered_final_pagerank = filter(lambda x: x[0] not in all_seen_movies_from_group, group_pagerank.items())
 
 	return filtered_final_pagerank
+
+
+
+
 
 if __name__ == '__main__':
 	main()

@@ -1,7 +1,25 @@
-import utils.pagerank_utils as pru
-import part_1.topic_specific_pagerank as tspr
 import pprint as pp
+
+import pagerank_utils as pru
+import topic_specific_pagerank as tspr
 import configurations as conf
+
+
+
+def _print_usage():
+	usage='''
+Usage:
+	python WebIR_HW_2_part_3_offline.py <graph_path> <categories_path> <out_dir> [--verbose]
+	OR
+	python WebIR_HW_2_part_3_offline.py --default-config [--verbose]
+
+Example:
+	python WebIR_HW_2_part_3_offline.py ./datasets/movie_graph.txt ./datasets/category_movies.txt ./datasets --verbose
+	OR
+	python WebIR_HW_2_part_3_offline.py --default-config
+	'''
+	print(usage)
+
 
 def compute_pageranks_by_category(movie_graph, category_movies_dict):
 	"""
@@ -65,9 +83,23 @@ def main(movie_graph_filepath, category_movies_filepath, output_dir):
 
 
 if __name__ == '__main__':
-	movie_graph_filepath = conf.DATA_DIR + conf.MOVIE_GRAPH_FILENAME
-	category_movies_filepath = conf.DATA_DIR + conf.CATEGORY_MOVIES_FILENAME
-	output_dir = conf.PART_2_OUTPUT_DIR
 
-	main(movie_graph_filepath, category_movies_filepath, output_dir)
+	if len(sys.argv)>=4 and len(sys.argv)<=5:
+		movie_graph_filepath = sys.argv[1]
+		movie_categories_path = sys.argv[2]
+		output_dir = sys.argv[3]
 
+		if len(sys.argv)==5 and sys.argv[4]=="--verbose": verbose=True
+
+	elif len(sys.argv) >= 2 and len(sys.argv) <= 3 and sys.argv[1] == "--default":
+		movie_graph_filepath = conf.DATA_DIR + conf.MOVIE_GRAPH_FILENAME
+		movie_categories_path = conf.DATA_DIR + conf.CATEGORY_MOVIES_FILENAME
+		output_dir = conf.PART_2_OUTPUT_DIR
+		
+		if len(sys.argv) == 3 and sys.argv[2] == "--verbose": verbose = True
+
+	else:
+		_print_usage()
+		exit(1)
+
+	main(movie_graph_filepath, movie_categories_path, output_dir)

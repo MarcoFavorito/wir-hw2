@@ -1,6 +1,8 @@
 import networkx as nx
 import csv
 
+
+
 def read_movie_graph(input_file_name):
 
 	# Get graph file
@@ -51,6 +53,7 @@ def read_user_movie_rating(input_file_name):
 		user_ratings[user_id][movie_id] = rating
 
 	return user_ratings
+
 
 def read_category_movies(input_file_name):
 	"""
@@ -108,6 +111,7 @@ def print_pagerank_list(ids_scores, file=None):
 	for id, score in ids_scores:
 		print("{0}\t{1}".format(id, score), file=file)
 
+
 def load_pagerank_vector_from_file(filepath):
 	with open(filepath) as fin:
 		lines = fin.readlines()
@@ -133,4 +137,3 @@ def merge_distributions(dist_list, weights):
 				result[id] = distribution[id]*weight
 
 	return result
-

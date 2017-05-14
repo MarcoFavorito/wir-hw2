@@ -1,7 +1,11 @@
 import sys
+
 import configurations as conf
-import utils.pagerank_utils as pru
+import pagerank_utils as pru
+
 from _functools import reduce
+
+
 
 def _print_usage():
 	usage='''Usage:
@@ -9,6 +13,7 @@ def _print_usage():
 Example:
 	python WebIR_HW_2_part_3_online.py 3_4_0_1_1 --verbose'''
 	print(usage)
+
 
 def main():
 
@@ -77,6 +82,8 @@ def _load_precomputed_categories_pageranks(norm_preference_vector):
 		result.append(cur_pagerank_vector)
 
 	return result
+
+
 
 
 if __name__ == '__main__':
