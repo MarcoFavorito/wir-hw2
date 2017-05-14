@@ -11,7 +11,7 @@ def _print_usage():
 Usage:
 	python WebIR_HW_2_part_2.py <graph_path> <user_ratings> <user_id> [--verbose]
 Example:
-	python WebIR_HW_2_part_2.py ../datasets/movie_graph.txt ../datasets/user_movie_rating.txt 1683 --verbose
+	python WebIR_HW_2_part_2.py ./datasets/movie_graph.txt ./datasets/user_movie_rating.txt 1683 --verbose
 	'''
 	print(usage)
 

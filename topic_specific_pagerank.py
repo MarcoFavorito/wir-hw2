@@ -1,4 +1,4 @@
-import utils.pagerank_utils as pru
+import pagerank_utils as pru
 
 default_alpha = .15
 default_epsilon = 10**-6
