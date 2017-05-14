@@ -28,10 +28,20 @@ def compute_topic_specific_pagerank(graph, teleporting_distribution=None, alpha=
 	page_rank_vector = {}
 	num_iterations = 0
 
+	edge_weights = {}
+	for node in graph:
+		edge_weights[node] = {}
+		for neighbor in graph[node]:
+			edge_weights[node][neighbor] = graph[node][neighbor]["weight"]
+
+	edge_weight_sums = {}
+	for node in graph:
+		edge_weight_sums[node] = graph.node[node]["edge_weight_sum"]
+
 	while True:
 
 		# Compute next pagerank vector
-		page_rank_vector = single_iteration_topic_specific_page_rank(graph, previous_page_rank_vector, alpha=alpha, teleporting_distribution=teleporting_distribution)
+		page_rank_vector = single_iteration_topic_specific_page_rank(graph, previous_page_rank_vector, edge_weights, edge_weight_sums, alpha=alpha, teleporting_distribution=teleporting_distribution)
 
 		num_iterations += 1
 
@@ -66,7 +76,8 @@ def create_initial_pagerank_vector(graph):
 
 
 
-def single_iteration_topic_specific_page_rank(graph, page_rank_vector, teleporting_distribution=None, alpha=default_alpha):
+def single_iteration_topic_specific_page_rank(graph, page_rank_vector, edge_weights, edge_weight_sums, teleporting_distribution=None, alpha=default_alpha):
+
 	if teleporting_distribution==None:
 		teleporting_distribution = pru.get_uniform_teleporting_distribution(graph)
 
@@ -80,8 +91,10 @@ def single_iteration_topic_specific_page_rank(graph, page_rank_vector, teleporti
 		r[node] = 0.
 
 		for neighbor in graph[node]:
-			weight = graph[node][neighbor]["weight"]
-			weight_sum = graph.node[neighbor]["edge_weight_sum"]
+			# weight = graph[node][neighbor]["weight"]
+			weight = edge_weights[node][neighbor]
+			# weight_sum = graph.node[neighbor]["edge_weight_sum"]
+			weight_sum = edge_weight_sums[neighbor]
 
 			r[node] += (1 - alpha) * page_rank_vector[neighbor] * weight / weight_sum
 
