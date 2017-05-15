@@ -52,13 +52,13 @@ def compute_topic_specific_pagerank(graph, teleporting_distribution=None, alpha=
 		page_rank_vector_values = [t[1] for t in sorted(page_rank_vector.items(), key=lambda x: x[0])]
 		distance = get_distance(previous_page_rank_vector_values, page_rank_vector_values)
 
-		print(num_iterations)
+		# print(num_iterations)
 
 		# Check for convergence
 		if distance <= epsilon:
-			print()
-			print(" Convergence!")
-			print()
+			# print()
+			# print(" Convergence!")
+			# print()
 			break
 
 		previous_page_rank_vector = page_rank_vector
