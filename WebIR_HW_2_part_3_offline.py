@@ -1,4 +1,5 @@
 import pprint as pp
+import sys
 
 import pagerank_utils as pru
 import topic_specific_pagerank as tspr
@@ -91,11 +92,11 @@ if __name__ == '__main__':
 
 		if len(sys.argv)==5 and sys.argv[4]=="--verbose": verbose=True
 
-	elif len(sys.argv) >= 2 and len(sys.argv) <= 3 and sys.argv[1] == "--default":
+	elif len(sys.argv) >= 2 and len(sys.argv) <= 3 and sys.argv[1] == "--default-config":
 		movie_graph_filepath = conf.DATA_DIR + conf.MOVIE_GRAPH_FILENAME
 		movie_categories_path = conf.DATA_DIR + conf.CATEGORY_MOVIES_FILENAME
 		output_dir = conf.PART_2_OUTPUT_DIR
-		
+
 		if len(sys.argv) == 3 and sys.argv[2] == "--verbose": verbose = True
 
 	else:
