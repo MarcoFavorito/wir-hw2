@@ -137,3 +137,7 @@ def merge_distributions(dist_list, weights):
 				result[id] = distribution[id]*weight
 
 	return result
+
+def normalize(d):
+	s = sum(d.values())
+	return dict((k, v / s) for k, v in d.items())
